@@ -13,7 +13,6 @@ class TestBurger:
         burger = Burger()
         assert burger.bun is None
 
-
     def test_set_buns(self):
         """Проверка у бургера именно та булочка, что назначили"""
 
@@ -52,7 +51,6 @@ class TestBurger:
 
         assert burger.ingredients[0] == mock_ingredient
 
-
     def test_remove_ingredient_exists_zero(self):
         """Проверка при удалении добавленного ингредиента их 0"""
         mock_ingredient = Mock(spec=Ingredient)
@@ -90,13 +88,13 @@ class TestBurger:
         mock_ingredient.get_name.return_value = "test ingredient"
         mock_ingredient.get_price.return_value = 30.0
 
-
         burger = Burger()
         burger.set_buns(mock_bun)
         burger.add_ingredient(mock_ingredient)
 
-
-        assert burger.get_price() == mock_bun.get_price() * 2 + mock_ingredient.get_price()
+        assert (
+            burger.get_price() == mock_bun.get_price() * 2 + mock_ingredient.get_price()
+        )
 
     def test_get_receipt(self):
         """Проверка формирования чека"""
@@ -116,7 +114,9 @@ class TestBurger:
 
         receipt = burger.get_receipt()
 
-        assert receipt == ("(==== test bun ====)\n"
-                           "= sauce test ingredient =\n"
-                           "(==== test bun ====)\n\n"
-                           "Price: 230.0")
+        assert receipt == (
+            "(==== test bun ====)\n"
+            "= sauce test ingredient =\n"
+            "(==== test bun ====)\n\n"
+            "Price: 230.0"
+        )
