@@ -22,3 +22,5 @@
 **Запуск автотестов и создание HTML-отчета о покрытии**
 
 >  `$ pytest --cov=praktikum --cov-report=html`
+
+Автор: Нестер Екатерина Васильевна https://github.com/EkaterinaNester89/
